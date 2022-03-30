@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormComponent } from './form/form.component'
 
 const appRoutes: Routes = [
+  { path: '', component: FormComponent },
   { path: 'dashboard', component: DashboardComponent },
 ];
 
