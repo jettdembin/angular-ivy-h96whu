@@ -1,0 +1,8 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<label for="username">Username</label>
+<input type="email" formControlName="username"/><br>
+<span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter a valid email!</span>
+<label for="password">Password</label>
+<input type="password" formControlName="password" />
+<button>Log In</button>
+</form>

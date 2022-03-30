@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormComponent } from './form/form.component'
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -13,7 +13,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HelloComponent, DashboardComponent],
+  declarations: [AppComponent, FormComponent, DashboardComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,21 +1,6 @@
-<hello name="{{ name }}"></hello>
-<h4>Instructions:</h4>
-<p>
-  1. Build out a simple login form below with a username and password. <br>
-  2. Add a Login button we can click. With the username <b>'test@tad.software'</b> and password <b>'test123'</b> we can login and be routed to a dashboard component.<br>
-  3. In the dashboard component display a message that says 'Welcome to the Dashboard!'.
-</p>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <label for="username">Username</label>
-      <input type="email" formControlName="username"/><br>
-      <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter a valid email!</span>
-      <label for="password">Password</label>
-      <input type="password" formControlName="password" />
-      <button>Log In</button>
-    </form>
     <router-outlet></router-outlet>
   </div>
 </div>
