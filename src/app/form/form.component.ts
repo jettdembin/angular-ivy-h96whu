@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -11,6 +12,7 @@ export class FormComponent implements OnInit{
   loginForm: FormGroup;
   username: string;
   password: string;
+  associatedAccount: false;
 
   constructor (private router:Router ){}
   
@@ -21,11 +23,22 @@ export class FormComponent implements OnInit{
     })
   }
 
-  onSubmit() {
+  onSubmit(): Promise<any> | Observable<any> {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
-    if (this.username === 'test@tad.software' && this.password === 'test123') {
-      this.router.navigate(['/dashboard']);
-    }
+    const promise = new Promise<any>((resolve, reject)=> {
+      setTimeout(()=> {
+        if (this.username === 'test@tad.software' && this.password === 'test123') {
+          resolve({associatedAccount: true})
+        } else {
+          resolve(null)
+        }
+      }); 
+    });
+    return promise
+  }
+
+  navigate(Promise: Function) {
+    this.associatedAccount ? this.router.navigate(['/dashboard']) : alert('hi')
   }
 }
