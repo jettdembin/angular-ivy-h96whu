@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -27,9 +26,5 @@ export class FormComponent implements OnInit{
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
     (this.username === 'test@tad.software' && this.password === 'test123') ? this.router.navigate(['/dashboard']) : alert('Our records indicate there is no account assoiciated with this email and passowrd') 
-  }
-
-  navigate(Promise: Function) {
-    this.associatedAccount ? this.router.navigate(['/dashboard']) : alert('hi')
   }
 }
