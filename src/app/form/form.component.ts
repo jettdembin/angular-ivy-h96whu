@@ -23,19 +23,10 @@ export class FormComponent implements OnInit{
     })
   }
 
-  onSubmit(): Promise<any> | Observable<any> {
+  onSubmit() {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
-    const promise = new Promise<any>((resolve, reject)=> {
-      setTimeout(()=> {
-        if (this.username === 'test@tad.software' && this.password === 'test123') {
-          resolve({associatedAccount: true})
-        } else {
-          resolve(null)
-        }
-      }); 
-    });
-    return promise
+    (this.username === 'test@tad.software' && this.password === 'test123') ? this.router.navigate(['/dashboard']) : alert('Our records indicate there is no account assoiciated with this email and passowrd') 
   }
 
   navigate(Promise: Function) {
